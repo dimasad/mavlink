@@ -60,22 +60,10 @@
       <field type="uint8_t" name="quality">GPS quality indication</field>
       <field type="uint8_t" name="num_sats">Number of satellites in use</field>
       <field type="float" name="hdop">Horizontal dilution of precision</field>
-      <field type="double" name="altitude_amsl">Altitude in meters above mean sea level</field>      
+      <field type="double" name="altitude">Altitude in meters above mean sea level</field>
       <field type="float" name="geoid_height">Height in meters of the geoid (mean sea level) above WGS84 ellipsoid</field>
       <field type="float" name="age_dgps">Time in seconds since last DGPS update</field>
-      <field type="float" name="dgps_id">DGPS station ID number</field>
-    </message>
-    
-    <message id="166" name="GPS_GGA_INT">
-      <description>Raw data of an NMEA GPGGA GPS sentence as scaled integers.</description>
-      <field type="uint64_t" name="time_usec">Unix timestamp of receipt in microseconds or since system boot if smaller than MAVLink epoch (1.1.2009)</field>
-      <field type="uint32_t" name="fix_time_ms">UTC time of GPS fix in milliseconds from start of day.</field>
-      <field type="int32_t" name="latitude">Latitude (WGS84), in degrees * 1E7</field>
-      <field type="int32_t" name="longitude">Longitude (WGS84), in degrees * 1E7</field>
-      <field type="int32_t" name="altitude">Altitude in mm AMSL</field>
-      <field type="uint8_t" name="quality">GPS quality indication</field>
-      <field type="uint8_t" name="num_sats">Number of satellites in use</field>
-      <field type="uint16_t" name="hdop">Horizontal dilution of precision * 100</field>
+      <field type="char[4]" name="dgps_id">DGPS station ID.</field>
     </message>
   </messages>
 </mavlink>
