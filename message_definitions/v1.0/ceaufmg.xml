@@ -49,14 +49,13 @@
       <field type="uint64_t" name="time_usec">Unix timestamp in microseconds or since system boot if smaller than MAVLink epoch (1.1.2009)</field>
       <field type="int16_t[16]" name="data">Raw data from the ADC</field>
     </message>
-
     
     <message id="165" name="GPS_GGA">
       <description>Raw data of an NMEA GPGGA GPS sentence.</description>
       <field type="uint64_t" name="time_usec">Unix timestamp of receipt in microseconds or since system boot if smaller than MAVLink epoch (1.1.2009)</field>
       <field type="float" name="fix_time">UTC time of GPS fix in seconds from start of day.</field>
-      <field type="double" name="latitude">Latitude (WGS84), in degrees</field>
-      <field type="double" name="longitude">Longitude (WGS84), in degrees</field>
+      <field type="double" name="latitude">Latitude (WGS84) in degrees</field>
+      <field type="double" name="longitude">Longitude (WGS84) in degrees</field>
       <field type="uint8_t" name="quality">GPS quality indication</field>
       <field type="uint8_t" name="num_sats">Number of satellites in use</field>
       <field type="float" name="hdop">Horizontal dilution of precision</field>
@@ -64,6 +63,35 @@
       <field type="float" name="geoid_height">Height in meters of the geoid (mean sea level) above WGS84 ellipsoid</field>
       <field type="float" name="age_dgps">Time in seconds since last DGPS update</field>
       <field type="char[4]" name="dgps_id">DGPS station ID.</field>
+    </message>
+    
+    <message id="166" name="GPS_RMC">
+      <description>Raw data of an NMEA GPRMC GPS sentence.</description>
+      <field type="uint64_t" name="time_usec">Unix timestamp of receipt in microseconds or since system boot if smaller than MAVLink epoch (1.1.2009)</field>
+      <field type="uint64_t" name="fix_time_usec">Unix timestamp of GPS fix in microseconds.</field>
+      <field type="char" name="warning">Navigation receiver warning (A = OK, V = warning)</field>
+      <field type="double" name="latitude">Latitude (WGS84) in degrees</field>
+      <field type="double" name="longitude">Longitude (WGS84) in degrees</field>
+      <field type="float" name="speed">Speed over ground (knots)</field>
+      <field type="float" name="course">Course over ground in degrees</field>
+      <field type="float" name="mag_var">Magnetic variation in degrees</field>
+      <field type="char" name="mode">Mode indicator (A=autonomous, D=differential, E=Estimated, N=not valid, S=Simulator)</field>
+    </message>
+
+    <message id="170" name="GPS_PGRMV">
+      <description>Raw data of an NMEA PGRMV proprietary Garmin GPS sentence.</description>
+      <field type="uint64_t" name="time_usec">Unix timestamp of receipt in microseconds or since system boot if smaller than MAVLink epoch (1.1.2009)</field>
+      <field type="float" name="veast">Geographic east velocity in m/s</field>
+      <field type="float" name="vnorth">Geographic north velocity in m/s</field>
+      <field type="float" name="vup">Up velocity in m/s</field>
+    </message>
+    
+    <message id="171" name="GPS_PGRME">
+      <description>Raw data of an NMEA PGRME proprietary Garmin GPS sentence.</description>
+      <field type="uint64_t" name="time_usec">Unix timestamp of receipt in microseconds or since system boot if smaller than MAVLink epoch (1.1.2009)</field>
+      <field type="float" name="hpe">Estimated horizontal position error (m)</field>
+      <field type="float" name="vpe">Estimated vertical position error (m)</field>
+      <field type="float" name="epe">Estimated position error (m)</field>
     </message>
   </messages>
 </mavlink>
