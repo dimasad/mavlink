@@ -3,8 +3,22 @@
   <include>common.xml</include>
   
   <enums>
+    <enum name="CEAFDAS_DATA_SOURCE_ID">
+      <entry value="20" name="CEAFDAS_DATA_SOUCE_ALPHA_RAW">
+        <description>Raw data of an angle of attack sensor.</description>
+      </entry>
+      <entry value="21" name="CEAFDAS_DATA_SOUCE_BETA_RAW">
+        <description>Raw data of a sideslip angle sensor.</description>
+      </entry>
+      <entry value="22" name="CEAFDAS_DATA_SOUCE_QBAR_RAW">
+        <description>Raw data of a dynamic pressure sensor.</description>
+      </entry>
+      <entry value="23" name="CEAFDAS_DATA_SOUCE_TEMPERATURE_RAW">
+        <description>Raw data of a sideslip angle sensor.</description>
+      </entry>
+    </enum>
   </enums>
-
+  
   <messages>
     <message id="150" name="AHRS400_ANGLE_RAW">
       <description>Raw angle mode message from a Crossbow AHRS400 attitude and heading reference system.</description>
@@ -92,6 +106,65 @@
       <field type="float" name="hpe">Estimated horizontal position error (m)</field>
       <field type="float" name="vpe">Estimated vertical position error (m)</field>
       <field type="float" name="epe">Estimated position error (m)</field>
+    </message>
+
+    <message id="175" name="DYNON_EMS">
+      <description>Raw data of a Dynon Avionics EFIS message.</description>
+      <field type="uint64_t" name="time_usec">Unix timestamp of receipt in microseconds or since system boot if smaller than MAVLink epoch (1.1.2009)</field>
+    </message>
+
+    <message id="176" name="DYNON_EFIS">
+      <description>Raw data of a Dynon Avionics EFIS message.</description>
+      <field type="uint64_t" name="time_usec">Unix timestamp of receipt in microseconds or since system boot if smaller than MAVLink epoch (1.1.2009)</field>
+      <field type="uint8_t" name="hour">UTC hour</field>
+      <field type="uint8_t" name="minute">UTC minute</field>
+      <field type="uint8_t" name="second">UTC second</field>
+      <field type="uint8_t" name="fraction">1/64 second</field>
+      <field type="float" name="pitch">Pitch angle in degree</field>
+      <field type="float" name="roll">Roll angle in degree</field>
+      <field type="float" name="yaw">Yaw angle in degree</field>
+      <field type="float" name="airspeed">Airspeed in m/s</field>
+      <field type="float" name="altitude">Altitude in m</field>
+      <field type="float" name="turn_rate_or_vsi">Turn rate or VSI</field>
+      <field type="uint8_t" name="status">Status bitmask</field>
+      <field type="float" name="ay">Lateral acceleration in g</field>
+      <field type="float" name="an">Vertical acceleration in g</field>
+      <field type="uint8_t" name="aoa">Angle of attack in percentage of stall angle.</field>
+    </message>
+    
+    <message id="200" name="RAW_INT8">
+      <description>Raw measurement data.</description>
+      <field type="uint64_t" name="time_usec">Unix timestamp of in microseconds or since system boot if smaller than MAVLink epoch (1.1.2009)</field>
+      <field type="uint16_t" name="id">measurement source identifier</field>
+      <field type="uint8_t" name="value">measurement value</field>
+    </message>
+
+    <message id="201" name="RAW_INT16">
+      <description>Raw measurement data.</description>
+      <field type="uint64_t" name="time_usec">Unix timestamp of in microseconds or since system boot if smaller than MAVLink epoch (1.1.2009)</field>
+      <field type="uint16_t" name="id">measurement source identifier</field>
+      <field type="uint16_t" name="value">measurement value</field>
+    </message>
+
+    <message id="202" name="RAW_INT32">
+      <description>Raw measurement data.</description>
+      <field type="uint64_t" name="time_usec">Unix timestamp of in microseconds or since system boot if smaller than MAVLink epoch (1.1.2009)</field>
+      <field type="uint16_t" name="id">measurement source identifier</field>
+      <field type="uint32_t" name="value">measurement value</field>
+    </message>
+
+    <message id="203" name="RAW_FLOAT">
+      <description>Raw measurement data.</description>
+      <field type="uint64_t" name="time_usec">Unix timestamp of in microseconds or since system boot if smaller than MAVLink epoch (1.1.2009)</field>
+      <field type="uint16_t" name="id">measurement source identifier</field>
+      <field type="float" name="value">measurement value</field>
+    </message>
+
+    <message id="204" name="RAW_DOUBLE">
+      <description>Raw measurement data.</description>
+      <field type="uint64_t" name="time_usec">Unix timestamp of in microseconds or since system boot if smaller than MAVLink epoch (1.1.2009)</field>
+      <field type="uint16_t" name="id">measurement source identifier</field>
+      <field type="double" name="value">measurement value</field>
     </message>
   </messages>
 </mavlink>
