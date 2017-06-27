@@ -16,6 +16,9 @@
       <entry value="23" name="CEAFDAS_DATA_SOUCE_TEMPERATURE_RAW">
         <description>Raw data of a sideslip angle sensor.</description>
       </entry>
+      <entry value="24" name="CEAFDAS_DATA_SOUCE_PRESSURE_RAW">
+        <description>Raw pressure data.</description>
+      </entry>
     </enum>
   </enums>
   
@@ -132,36 +135,22 @@
       <field type="uint8_t" name="aoa">Angle of attack in percentage of stall angle.</field>
     </message>
     
-    <message id="200" name="RAW_INT8">
-      <description>Raw measurement data.</description>
+    <message id="200" name="DATA_INT">
+      <description>Generic data.</description>
       <field type="uint64_t" name="time_usec">Unix timestamp of in microseconds or since system boot if smaller than MAVLink epoch (1.1.2009)</field>
       <field type="uint16_t" name="id">measurement source identifier</field>
-      <field type="uint8_t" name="value">measurement value</field>
+      <field type="int64_t" name="value">measurement value</field>
     </message>
 
-    <message id="201" name="RAW_INT16">
-      <description>Raw measurement data.</description>
-      <field type="uint64_t" name="time_usec">Unix timestamp of in microseconds or since system boot if smaller than MAVLink epoch (1.1.2009)</field>
-      <field type="uint16_t" name="id">measurement source identifier</field>
-      <field type="uint16_t" name="value">measurement value</field>
-    </message>
-
-    <message id="202" name="RAW_INT32">
-      <description>Raw measurement data.</description>
-      <field type="uint64_t" name="time_usec">Unix timestamp of in microseconds or since system boot if smaller than MAVLink epoch (1.1.2009)</field>
-      <field type="uint16_t" name="id">measurement source identifier</field>
-      <field type="uint32_t" name="value">measurement value</field>
-    </message>
-
-    <message id="203" name="RAW_FLOAT">
-      <description>Raw measurement data.</description>
+    <message id="201" name="DATA_FLOAT">
+      <description>Generic data.</description>
       <field type="uint64_t" name="time_usec">Unix timestamp of in microseconds or since system boot if smaller than MAVLink epoch (1.1.2009)</field>
       <field type="uint16_t" name="id">measurement source identifier</field>
       <field type="float" name="value">measurement value</field>
     </message>
 
-    <message id="204" name="RAW_DOUBLE">
-      <description>Raw measurement data.</description>
+    <message id="202" name="DATA_DOUBLE">
+      <description>Generic data.</description>
       <field type="uint64_t" name="time_usec">Unix timestamp of in microseconds or since system boot if smaller than MAVLink epoch (1.1.2009)</field>
       <field type="uint16_t" name="id">measurement source identifier</field>
       <field type="double" name="value">measurement value</field>
