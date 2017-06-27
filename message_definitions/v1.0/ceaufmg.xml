@@ -110,30 +110,6 @@
       <field type="float" name="vpe">Estimated vertical position error (m)</field>
       <field type="float" name="epe">Estimated position error (m)</field>
     </message>
-
-    <message id="175" name="DYNON_EMS">
-      <description>Raw data of a Dynon Avionics EFIS message.</description>
-      <field type="uint64_t" name="time_usec">Unix timestamp of receipt in microseconds or since system boot if smaller than MAVLink epoch (1.1.2009)</field>
-    </message>
-
-    <message id="176" name="DYNON_EFIS">
-      <description>Raw data of a Dynon Avionics EFIS message.</description>
-      <field type="uint64_t" name="time_usec">Unix timestamp of receipt in microseconds or since system boot if smaller than MAVLink epoch (1.1.2009)</field>
-      <field type="uint8_t" name="hour">UTC hour</field>
-      <field type="uint8_t" name="minute">UTC minute</field>
-      <field type="uint8_t" name="second">UTC second</field>
-      <field type="uint8_t" name="fraction">1/64 second</field>
-      <field type="float" name="pitch">Pitch angle in degree</field>
-      <field type="float" name="roll">Roll angle in degree</field>
-      <field type="float" name="yaw">Yaw angle in degree</field>
-      <field type="float" name="airspeed">Airspeed in m/s</field>
-      <field type="float" name="altitude">Altitude in m</field>
-      <field type="float" name="turn_rate_or_vsi">Turn rate or VSI</field>
-      <field type="uint8_t" name="status">Status bitmask</field>
-      <field type="float" name="ay">Lateral acceleration in g</field>
-      <field type="float" name="an">Vertical acceleration in g</field>
-      <field type="uint8_t" name="aoa">Angle of attack in percentage of stall angle.</field>
-    </message>
     
     <message id="200" name="DATA_INT">
       <description>Generic data.</description>
